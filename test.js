@@ -3,8 +3,8 @@
 // require('./test/dream-team.test'); done
 // require('./test/extended-repeater.test'); done
 // require('./test/what-season.test'); done
-require('./test/vigenere-cipher.test');
+// require('./test/vigenere-cipher.test'); done
 // require('./test/hanoi-tower.test'); done
 // require('./test/transform-array.test'); done
 // require('./test/simple-chain.test');
-// require('./test/recursive-depth.test');
+require('./test/recursive-depth.test');
