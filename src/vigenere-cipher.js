@@ -7,10 +7,9 @@ class VigenereCipheringMachine {
   
   encrypt(message1, keyy) {
       if (arguments[0] === undefined || arguments[1] === undefined) throw new Error();
-      const { toUpper } = require("lodash");
       function mod(n, m) {return ((n % m) + m) % m;}
-      let message = toUpper(message1).split('');
-      let key = toUpper(keyy);
+      let message = message1.toUpperCase().split('');
+      let key = keyy.toUpperCase();
       let key_max = '';
       let res = [];
       while (key_max.length < message.length) {
