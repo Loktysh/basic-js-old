@@ -5,12 +5,14 @@ module.exports = function repeater(str, options) {
   let res = '';
   let addend = '';
   let add = addition;
+  for (let iter = 1; iter < additionRepeatTimes; iter++) {
+    add += additionSeparator + addition; 
+  } 
   for (let iter = 1; iter < repeatTimes; iter++) {
     addend += separator + str + add;
   }
-  for (let iter = 1; iter < additionRepeatTimes; iter++) {
-      add += additionSeparator + addition; 
-  } console.log(add)
+ 
+  // console.log(add)
   res = (str + add) + addend;
   return res
 };
