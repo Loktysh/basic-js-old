@@ -1,25 +1,13 @@
-const CustomError = require("../extensions/custom-error");
-
-module.exports = function getSeason(date) {
-  const seasons =  { 
-    11: 'winter',
-    0: 'winter',
-    1: 'winter',
-    2: 'spring',
-    3: 'spring',
-    4: 'spring', 
-    5: 'summer',
-    6: 'summer', 
-    7: 'summer', 
-    8: 'autumn',
-    9: 'autumn',
-    10: 'autumn',
-  }
-  if (date === null) {
-    throw new Error ('FAIL')
-  }
-  else if (date === undefined){
-    return 'Unable to determine the time of year!'
-  }
-  return seasons[date.getUTCMonth()]
+module.exports = function getSeason(cur_date) {
+    if(arguments.length == 0) return 'Unable to determine the time of year!';
+    if(type(cur_date) != "date") throw new Error();
+    let month = cur_date.getMonth();
+    let seasons = ["winter", "winter", "spring", "spring", "spring", "summer", "summer", "summer", "fall", "fall", "fall", "winter"];
+    return seasons[month];
 };
+
+function type(value) {
+  var regex = /^\[object (\S+?)\]$/;
+  var matches = Object.prototype.toString.call(value).match(regex) || [];
+  return (matches[1] || 'undefined').toLowerCase();
+}
