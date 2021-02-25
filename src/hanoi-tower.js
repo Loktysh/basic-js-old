@@ -1,7 +1,6 @@
-const SECONDS_IN_HOUR = 3600;
+const CustomError = require("../extensions/custom-error");
+
 module.exports = function calculateHanoi(disksNumber, turnsSpeed) {
-  const turns = 2 ** disksNumber - 1;    
-  turnsSpeed = turnsSpeed / SECONDS_IN_HOUR;
-  const seconds = Math.floor(turns / turnsSpeed);
-  return {turns, seconds};
-}
+  let res = Math.pow(2, disksNumber) - 1;
+  return {turns: res, seconds:  Math.floor(res / (turnsSpeed / 3600))}
+};

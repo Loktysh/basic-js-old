@@ -1,30 +1,34 @@
+const CustomError = require("../extensions/custom-error");
+
 const chainMaker = {
-  arr: [],
+  str: [],
   getLength() {
-    return this.arr.length; 
+      // len = this.str.length;
+      // this.str.push(len);
+      return this.str.length
   },
   addLink(value) {
-    let strvalue = "" + value;
-    this.arr.push(strvalue);
-    return this;
+      e = value + '';
+      this.str.push(e);
+      return this
   },
   removeLink(position) {
-    if(typeof(position) != 'number' || position <= 0 || position > this.arr.length || Math.trunc(position) != position) 
+    if( typeof(position) != 'number' || (position^0) !== position || position <= 0 || position > this.str.length ) 
     {
-      this.arr = [];
-      throw new Error();
+      this.str = [];
+      throw new Error('Invalid position number');
     }
-    this.arr.splice(position - 1, 1);
-    return this;
+      this.str.splice(position-1, 1);
+      return this
   },
   reverseChain() {
-    this.arr.reverse();
-    return this;
+      this.str.reverse();
+      return this
   },
   finishChain() {
-    let chain_string = "( " + this.arr.join(" )~~( ") + " )";     
-    this.arr = [];
-    return chain_string;
+      let res = this.str.map((c,i) => i === 0 ? `(`+` ${c} `+`)`: `~~(`+` ${c} `+`)`).join('');
+      this.str = [];
+      return res
   }
 };
 
