@@ -1,4 +1,4 @@
-const CustomError = require("../extensions/custom-error");
+import { NotImplementedError } from '../extensions/index.js';
 
 const chainMaker = {
   str: [],
@@ -29,7 +29,29 @@ const chainMaker = {
       let res = this.str.map((c,i) => i === 0 ? `(`+` ${c} `+`)`: `~~(`+` ${c} `+`)`).join('');
       this.str = [];
       return res
+/**
+ * Implement chainMaker object according to task description
+ * 
+ */
+export default {
+  getLength() {
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
+  },
+  addLink(/* value */) {
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
+  },
+  removeLink(/* position */) {
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
+  },
+  reverseChain() {
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
+  },
+  finishChain() {
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
   }
 };
-
-module.exports = chainMaker;
